@@ -1,0 +1,60 @@
+div.better-class {
+    font-family: 'Lato', sans-serif;
+    color: teal;
+    background-color: white;
+    
+    width: 400px;
+    margin: 10px auto;
+}
+  
+div.better-class div {
+    position: relative;
+    margin: 50px 0;
+}
+  
+div.better-class > div > label {
+    position: absolute;
+    top: 0;
+    font-size: 30px;
+    margin: 10px;
+    padding: 0 10px;
+    background-color: white;
+    -webkit-transition: top .2s ease-in-out, 
+                        font-size .2s ease-in-out;
+    transition: top .2s ease-in-out, 
+                font-size .2s ease-in-out;
+}
+  
+div.better-class > div > label.active {
+    top: -25px;
+    font-size: 20px;
+}
+  
+div.better-class > div > input[type=number] {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid teal;
+    font-size: 20px;
+    background-color: white;
+    color: teal;
+} 
+  
+div.better-class > div > input[type=number]:focus {
+    outline: none;
+}
+
+.verification{
+    width: 1.2em!important;
+    height: 1.2em!important;
+    line-height: 1.2em!important;
+    box-shadow: none!important;
+}
+
+#funcForm\:j_idt160\:1\:j_idt167{
+    margin: 0 100px;
+    height: initial;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    color: #212121;
+    font-weight: bold;
+}
