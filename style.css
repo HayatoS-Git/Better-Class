@@ -3,7 +3,7 @@ div.better-class {
     color: teal;
     background-color: white;
     
-    width: 400px;
+    width: 300px;
     margin: 10px auto;
 }
   
@@ -32,12 +32,20 @@ div.better-class > div > label.active {
   
 div.better-class > div > input[type=number] {
     width: 100%;
-    padding: 20px;
+    padding: 15px 30px 5px;
     border: 1px solid teal;
-    font-size: 20px;
+    font-size: 35px;
     background-color: white;
     color: teal;
+    letter-spacing: 15px;
 } 
+
+div.better-class > div > input[type=number]::-webkit-inner-spin-button,
+div.better-class > div > input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    -moz-appearance:textfield !important;
+}
   
 div.better-class > div > input[type=number]:focus {
     outline: none;

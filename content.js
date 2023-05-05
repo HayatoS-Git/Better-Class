@@ -2,17 +2,30 @@
 var span = document.querySelector('div#breadCrumbArea > div > ul > li > span > span');
 
 if (span.textContent === '出席登録') {
-    let textbox = document.getElementById('funcForm:j_idt160:1:j_idt167');
-    let add_code = '<div class="better-class"><div><label for="four-digit-input">認証コード</label><input type="number" id="four-digit-input"  min="0" max="9999" oninput="javascript: this.value = this.value.slice(0, 4);"></div></div>';
-    textbox.insertAdjacentHTML( 'afterEnd', add_code);  
+  let textbox = document.getElementById('funcForm:j_idt160:1:j_idt167');
+  if (textbox === null){
+      textbox = document.getElementById('funcForm:j_idt160:0:j_idt167');
+  }
+  let add_code = '<div class="better-class"><div><label for="four-digit-input">認証コード</label><input type="number" id="four-digit-input"  min="0" max="9999" oninput="javascript: this.value = this.value.slice(0, 4);"></div></div>';
+  textbox.insertAdjacentHTML( 'afterEnd', add_code);  
 }
 
 //Input to Messy Input-Field
 const inputBox = document.getElementById('four-digit-input');
-const ttt1 = document.getElementById('funcForm:j_idt160:1:j_idt180');
-const ttt2 = document.getElementById('funcForm:j_idt160:1:j_idt181');
-const ttt3 = document.getElementById('funcForm:j_idt160:1:j_idt182');
-const ttt4 = document.getElementById('funcForm:j_idt160:1:j_idt183');
+
+let ttt1, ttt2, ttt3, ttt4;
+if( document.getElementById('funcForm:j_idt160:1:j_idt180') === null){
+  ttt1 = document.getElementById('funcForm:j_idt160:0:j_idt180');
+  ttt2 = document.getElementById('funcForm:j_idt160:0:j_idt181');
+  ttt3 = document.getElementById('funcForm:j_idt160:0:j_idt182');
+  ttt4 = document.getElementById('funcForm:j_idt160:0:j_idt183');
+}
+else{
+  ttt1 = document.getElementById('funcForm:j_idt160:1:j_idt180');
+  ttt2 = document.getElementById('funcForm:j_idt160:1:j_idt181');
+  ttt3 = document.getElementById('funcForm:j_idt160:1:j_idt182');
+  ttt4 = document.getElementById('funcForm:j_idt160:1:j_idt183');
+}
 
 inputBox.addEventListener('input', () => {
   const inputText = inputBox.value;
