@@ -7,8 +7,9 @@ Classの出席登録の入力をちょっと便利にするのChrome拡張機能
 
 - オリジナル
 ![before_usage](https://user-images.githubusercontent.com/129836278/235457091-7515ebda-d428-477d-8fd0-d7eb159c6141.png)
-- Better-Class時
-![after_usage](https://user-images.githubusercontent.com/129836278/235457197-1b3b6d5f-afd9-4f8d-9617-d6416d4a6966.png)
+- Better-Class使用
+![after usage](https://github.com/HayatoS-Git/Better-Class/assets/129836278/4eb6390a-d152-449d-86c7-23c6c3174289)
+
 
 ## 使い方
 ユーザーが特に意識することはありません。
