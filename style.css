@@ -58,57 +58,11 @@ div.better-class > div > input[type=number]:focus {
     box-shadow: none!important;
 }
 
-#funcForm\:j_idt160\:1\:j_idt167,
-.ui-outputpanel.ui-widget.dataContent{
+#funcForm\:j_idt160\:1\:j_idt167{
     margin: 0 100px;
     height: initial;
     background-color: #e8e8e8;
     border-radius: 10px;
     color: #212121;
     font-weight: bold;
-}
-
-button.ui-button.ui-widget {
-    height: 2.5em;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    color: teal;
-    /*text-align: center;*/
-    background-color: transparent;
-    border: 1px solid teal;
-    letter-spacing: 1px;
-    border-radius: 1px;
-    /*margin: 0 30px;*/
-    transition: background-color 0.2s;
-}
-
-button.ui-button.ui-widget:hover{
-    background-color: teal;
-    color: aliceblue;
-}
-
-.ui-outputpanel.ui-widget.indexBtn{
-    display: flex;
-}
-.ui-outputpanel.ui-widget.indexBtn > button.ui-button.ui-widget{
-    display: flex;
-    justify-content: space-around;
-    align-items:center;
-}
-
-div.ui-outputpanel.ui-widget.btnArea > button.ui-button.ui-widget{
-    margin: 0 30px;
-}
-.btnArea{
-    width: 100%!important;
-}
-
-.ui-outputlabel.ui-widget.signSize{
-    /*出席確認時間*/
-    color: #212121;
-    font-size: 1em!important;
-}
-
-header{
-    background: #222!important;
 }

@@ -2,78 +2,59 @@
 var span = document.querySelector('div#breadCrumbArea > div > ul > li > span > span');
 
 if (span.textContent === '出席登録') {
-  let textbox = document.getElementsByClassName('ui-outputpanel ui-widget dataContent')[0];
-  if (textbox === null){
-    textbox = document.getElementById('funcForm:j_idt160:0:j_idt167');
-  }
-  if (textbox === null){
-    textbox = document.getElementById('funcForm:j_idt160:1:j_idt167');
-  }
-  console.log(textbox);
-  let add_code = '<div class="better-class"><div><label for="four-digit-input">認証コード</label><input type="number" id="four-digit-input"  min="0" max="9999" oninput="javascript: this.value = this.value.slice(0, 4);"></div></div>';
-  textbox.insertAdjacentHTML( 'afterEnd', add_code);  
-}
+  const labelElement = document.querySelector('label.gray');
 
-//Input to Messy Input-Field
-const inputBox = document.getElementById('four-digit-input');
-
-let ttt1, ttt2, ttt3, ttt4;
-if( document.getElementById('funcForm:j_idt160:1:j_idt180') === null){
-  ttt1 = document.getElementsByClassName('ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all verification1 verification')[0];
-  ttt2 = document.getElementsByClassName('ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all verification2 verification')[0];
-  ttt3 = document.getElementsByClassName('ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all verification3 verification')[0];
-  ttt4 = document.getElementsByClassName('ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all verification4 verification')[0];
-}
-else{
-  ttt1 = document.getElementById('funcForm:j_idt160:1:j_idt180');
-  ttt2 = document.getElementById('funcForm:j_idt160:1:j_idt181');
-  ttt3 = document.getElementById('funcForm:j_idt160:1:j_idt182');
-  ttt4 = document.getElementById('funcForm:j_idt160:1:j_idt183');
-}
-
-if (span.textContent === '出席登録') {
-  inputBox.addEventListener('input', () => {
-    const inputText = inputBox.value;
-    if (inputText.length === 4) {
-      ttt1.value = inputText.charAt(0);
-      ttt2.value = inputText.charAt(1);
-      ttt3.value = inputText.charAt(2);
-      ttt4.value = inputText.charAt(3);
-    }
-  });
-  
-  //Click Button When Press "Enter"
-  document.getElementById("four-digit-input").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") {
-      document.getElementById("funcForm:j_idt235").click();
-    }
-  });
-
-  //Input-Field Style
-  document.querySelectorAll('input').forEach(function(input) {
-    input.addEventListener('focusin', function() {
-      this.parentNode.querySelector('label').classList.add('active');
-    });
+  if (labelElement && labelElement.textContent.trim() === "認証コード") {
+    //新規input要素を追加
+    let add_html_code = '<div class="better-class"><div><label for="four-digit-input">認証コード</label><input type="number" id="four-digit-input"  min="0" max="9999" oninput="javascript: this.value = this.value.slice(0, 4);"></div></div>';
+    const parentDiv = labelElement.parentElement;
+    parentDiv.insertAdjacentHTML( 'afterEnd', add_html_code);
     
-    input.addEventListener('focusout', function() {
-      if (!this.value) {
-        this.parentNode.querySelector('label').classList.remove('active');
+    //オリジナルinput要素を取得
+    let attend_code = new Array(4);
+    const inputElements = parentDiv.querySelectorAll('input');
+    inputElements.forEach(function(inputElement, index){
+      attend_code[index] = inputElement;
+    });
+
+    //新規inputの数値をオリジナルinputに入力
+    const inputBox = document.getElementById('four-digit-input');
+    inputBox.addEventListener('input', () => {
+      const inputText = inputBox.value;
+      if (inputText.length === 4) {
+        attend_code[0].value = inputText.charAt(0);
+        attend_code[1].value = inputText.charAt(1);
+        attend_code[2].value = inputText.charAt(2);
+        attend_code[3].value = inputText.charAt(3);
       }
     });
-  });
+  }
+
 }
 
-// ページ上のJavaScriptを無効化する
-/*
-const script = document.createElement('script');
-script.textContent = `
-  $(function () {
-    $(document).off('keydown.disableF1toF12').on('keydown.disableF1toF12', function (e) {
-      if (e.keyCode >= 112 && e.keyCode <= 123) {
-        e.preventDefault();
+//Click Button When Press "Enter"
+document.getElementById("four-digit-input").addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+    const buttonElements = document.querySelectorAll('span.ui-button-text.ui-c');
+    
+    buttonElements.forEach(buttonElement => {
+      if (buttonElement && buttonElement.textContent.trim() === "出席登録する") {
+        console.log("click!");
+        buttonElement.parentElement.click();
       }
     });
+  }
+});
+
+//Input-Field Style
+document.querySelectorAll('input').forEach(function(input) {
+  input.addEventListener('focusin', function() {
+    this.parentNode.querySelector('label').classList.add('active');
   });
-`;
-document.body.appendChild(script);
-*/
+
+  input.addEventListener('focusout', function() {
+    if (!this.value) {
+      this.parentNode.querySelector('label').classList.remove('active');
+    }
+  });
+});
